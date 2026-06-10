@@ -154,7 +154,7 @@ function TestimonialCard({
 
       {/* Quote text */}
       <p className="text-sm text-muted-foreground leading-relaxed line-clamp-4 pr-2">
-        "{item.quote}"
+        {item.quote}
       </p>
 
       {/* Author */}
