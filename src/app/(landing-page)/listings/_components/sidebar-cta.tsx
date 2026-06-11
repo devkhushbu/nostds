@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ShieldCheck, ArrowRight } from "lucide-react";
 
@@ -8,10 +9,12 @@ export function SidebarCta() {
   return (
     <div className="relative w-full overflow-hidden rounded-3xl border border-neutral-100 dark:border-neutral-800/80 bg-neutral-900 shadow-xl shadow-primary/5 min-h-[340px] flex flex-col justify-between p-6 text-white group">
       {/* Background Image */}
-      <img
+      <Image
         src="/images/cta-background.png"
         alt="Discreet Packaging"
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 group-hover:scale-105 transition-transform duration-700"
+        fill
+        sizes="(max-width: 768px) 100vw, 300px"
+        className="object-cover z-0 opacity-40 group-hover:scale-105 transition-transform duration-700"
       />
       {/* Gradient Overlay matching brand */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary/80 to-purple-950/90 z-0 mix-blend-multiply" />

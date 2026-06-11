@@ -3,6 +3,8 @@
 import React from "react";
 import { ArrowRight, Building2, Info, ShieldCheck, Users, TrendingUp } from "lucide-react";
 
+import Image from "next/image";
+
 const trustStats = [
   { icon: Users,      value: "50,000+", label: "Monthly Users"     },
   { icon: Building2,  value: "4,500+",  label: "Listed Centers"    },
@@ -17,10 +19,12 @@ export default function CtaBannerSection() {
 
 
       {/* ── Background image ── */}
-      <img
+      <Image
         src="/images/cta-background.png"
         alt="CTA Background"
-        className="absolute inset-0 w-full h-full object-cover"
+        fill
+        sizes="100vw"
+        className="object-cover"
       />
 
       {/* ── Light scrim for text readability ── */}

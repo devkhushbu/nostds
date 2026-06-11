@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Search, MapPin, ShieldCheck, ArrowRight } from "lucide-react";
 import {
@@ -36,10 +37,13 @@ export function ListingsHeroSection({
   return (
     <div className="relative min-h-[50vh] md:min-h-[60vh] w-full flex flex-col items-center justify-center py-16 px-4 md:px-8 overflow-hidden">
       {/* Background Image */}
-      <img
+      <Image
         src="/images/hero-bg.png"
         alt="Premium Clinic Background"
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        fill
+        sizes="100vw"
+        priority
+        className="object-cover z-0"
       />
       {/* Overlay for readability */}
       <div className="absolute inset-0 bg-background/30 dark:bg-background/70 z-0" />

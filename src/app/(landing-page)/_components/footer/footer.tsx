@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -103,14 +104,18 @@ export function Footer() {
           {/* Logo & Description Column */}
           <div className="md:col-span-4 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2 group">
-              <img
+              <Image
                 src="/images/logo-dark.png"
                 alt="SafeConnect Logo"
+                width={28}
+                height={28}
                 className="h-7 w-auto dark:hidden transition-transform duration-200 group-hover:scale-[1.02]"
               />
-              <img
+              <Image
                 src="/images/logo-light.png"
                 alt="SafeConnect Logo"
+                width={28}
+                height={28}
                 className="h-7 w-auto hidden dark:block transition-transform duration-200 group-hover:scale-[1.02]"
               />
               <span className="text-foreground text-xl font-extrabold tracking-tight">

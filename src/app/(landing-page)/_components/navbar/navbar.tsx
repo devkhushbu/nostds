@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import React, { useEffect, useState, useCallback } from "react";
 
 const menuItems = [
@@ -83,14 +84,18 @@ export const Navbar = () => {
                 className="flex items-center gap-2"
                 onClick={() => setMenuState(false)}
               >
-                <img
+                <Image
                   src="/images/logo-dark.png"
                   alt="NoSTDs Logo"
+                  width={28}
+                  height={28}
                   className="h-6 sm:h-7 w-auto dark:hidden"
                 />
-                <img
+                <Image
                   src="/images/logo-light.png"
                   alt="NoSTDs Logo"
+                  width={28}
+                  height={28}
                   className="h-6 sm:h-7 w-auto hidden dark:block"
                 />
                 <span className="text-foreground sm:text-lg md:text-xl lg:text-2xl font-bold tracking-tight">

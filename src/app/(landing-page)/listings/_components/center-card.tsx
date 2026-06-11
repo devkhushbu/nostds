@@ -1,15 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
+  LucideIcon,
   Star,
   MapPin,
   ArrowUpRight,
-  FlaskConical,
-  Clock,
   Heart,
   Share2,
-  ShieldCheck,
   Camera,
   Phone,
 } from "lucide-react";
@@ -26,7 +25,7 @@ export interface Center {
   description: string;
   tags: string[];
   categories: string[];
-  stats: { icon: any; label: string }[];
+  stats: { icon: LucideIcon; label: string }[];
   doctor: { name: string; avatar: string };
   accentTagBg: string;
   accentText: string;
@@ -79,9 +78,11 @@ export function CenterCard({ center }: { center: Center }) {
     >
       {/* IMAGE */}
       <div className="relative h-[196px] overflow-hidden rounded-[18px] m-2.5 mb-0 flex-shrink-0">
-        <img
+        <Image
           src={center.image}
           alt={center.name}
+          width={400}
+          height={250}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/30 rounded-[18px]" />
@@ -265,9 +266,11 @@ export function CenterListCard({ center }: { center: Center }) {
     >
       {/* LEFT SIDE: IMAGE (Responsive height/width) */}
       <div className="relative w-full md:w-[260px] lg:w-[300px] h-[200px] md:h-auto overflow-hidden m-2.5 rounded-[18px] flex-shrink-0">
-        <img
+        <Image
           src={center.image}
           alt={center.name}
+          width={400}
+          height={250}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-black/20" />

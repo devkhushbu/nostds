@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Search, MapPin, Check, ShieldCheck, Lock, ArrowRight } from "lucide-react";
 
+import Image from "next/image";
+
 export default function HeroSection() {
   const [checkReportId, setCheckReportId] = useState("");
   const [shareReportLocation, setShareReportLocation] = useState("");
@@ -27,10 +29,13 @@ export default function HeroSection() {
   return (
     <div className="relative min-h-[95vh] w-full flex flex-col items-center justify-center py-20 px-4 md:px-8 overflow-hidden">
       {/* Background Image */}
-      <img
+      <Image
         src="/images/hero-bg.png"
         alt="Premium Clinic Lobby"
-        className="absolute inset-0 w-full h-full object-cover z-0"
+        fill
+        sizes="100vw"
+        priority
+        className="object-cover z-0"
       />
       {/* Light/Dark overlay for readability - clear background image */}
       <div className="absolute inset-0 bg-white/20 dark:bg-neutral-950/60 z-0" />

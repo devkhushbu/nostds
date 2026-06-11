@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Image from "next/image";
 import { ListingsHeroSection } from "./_components/hero-section";
 import { SidebarFilter } from "./_components/sidebar-filter";
 import { SidebarCta } from "./_components/sidebar-cta";
@@ -8,7 +9,6 @@ import { CenterCard, CenterListCard } from "./_components/center-card";
 import { mockCenters } from "./_components/data";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
-  MapPin,
   Activity,
   LayoutGrid,
   List as ListIcon,
@@ -211,16 +211,18 @@ export default function ListingsPage() {
             ) : (
               /* Empty State */
               <div className="w-full flex flex-col items-center justify-center py-16 px-6 text-center bg-muted/30 dark:bg-muted/10 backdrop-blur-md rounded-[32px] max-w-xl mx-auto">
-                <img
+                <Image
                   src="/images/empty-state.png"
                   alt="No Centers Found"
-                  className="w-48 h-48 md:w-56 md:h-56 object-contain mb-6 animate-pulse duration-[3000ms]"
+                  width={224}
+                  height={224}
+                  className="object-contain mb-6 animate-pulse duration-[3000ms]"
                 />
                 <h3 className="text-xl font-bold text-foreground">
                   No matches found for your filter criteria
                 </h3>
                 <p className="mt-2 text-sm text-muted-foreground max-w-md">
-                  We couldn't find any centers matching your combined search terms and active sidebar filters. Try clearing your filters or resetting the search location.
+                  We couldn&apos;t find any centers matching your combined search terms and active sidebar filters. Try clearing your filters or resetting the search location.
                 </p>
                 <button
                   onClick={() => {

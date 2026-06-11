@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Star,
   MapPin,
@@ -227,9 +228,11 @@ function CenterCard({ center }: { center: (typeof featuredCenters)[0] }) {
     >
       {/* ══ IMAGE ══ */}
       <div className="relative h-[196px] overflow-hidden rounded-[18px] m-2.5 mb-0 flex-shrink-0">
-        <img
+        <Image
           src={center.image}
           alt={center.name}
+          width={400}
+          height={250}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/28 via-transparent to-black/32 rounded-[18px]" />

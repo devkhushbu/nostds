@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Building2, FlaskConical, SmilePlus, TrendingUp } from "lucide-react";
 
 /* ─────────── DATA ─────────── */
@@ -156,9 +157,11 @@ export default function StatsSection() {
     >
       {/* ── Red Ribbon — exact Wikipedia SVG as <img> ── */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/6/64/Red_Ribbon.svg"
+        <Image
+          src="/images/red-ribbon.svg"
           alt=""
+          width={340}
+          height={340}
           aria-hidden="true"
           className="w-[260px] md:w-[340px] h-auto select-none opacity-40 dark:opacity-[0.10]"
         />

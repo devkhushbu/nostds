@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   Building2,
@@ -185,9 +186,11 @@ export default function FindCentersByTypeSection() {
                           filter: "blur(28px)",
                         }}
                       />
-                      <img
+                      <Image
                         src={center.image}
                         alt={center.title}
+                        width={600}
+                        height={450}
                         className="relative w-full aspect-[4/3] object-cover rounded-2xl"
                       />
                     </div>
