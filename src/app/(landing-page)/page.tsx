@@ -5,7 +5,7 @@ import FeaturedCentersSection from "./sections/FeaturedCentersSection";
 import HowItWorksSection from "./sections/HowItWorksSection";
 import CtaBannerSection from "./sections/CtaBannerSection";
 import StatsSection from "./sections/StatsSection";
-import TestimonialsSection from "./sections/TestimonialsSection";
+import TestimonialSection from "./sections/TestimonialSection";
 
 
 export default function LandingPage() {
@@ -16,7 +16,7 @@ export default function LandingPage() {
       <FeaturedCentersSection />
       <HowItWorksSection />
       <StatsSection />
-      <TestimonialsSection />
+      <TestimonialSection />
       <CtaBannerSection />
     </div>
   );
