@@ -157,7 +157,7 @@ export default function PrivacyPolicyClient() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Left Navigation: Chapters Index (Sticky, 3 columns) */}
-          <div className="lg:col-span-3 sticky top-24 space-y-4">
+          <div className="lg:col-span-3 lg:sticky lg:top-24 space-y-4">
             <div className="space-y-2">
               <h3 className="text-sm uppercase font-extrabold tracking-widest text-muted-foreground px-2">
                 On This Page
@@ -251,7 +251,7 @@ export default function PrivacyPolicyClient() {
               <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
                 If you suspect a listed lab partner is asking for your identity or violating our anonymous guidelines, please notify us immediately through our encrypted compliance channel:
               </p>
-              <p className="text-sm sm:text-base font-mono bg-muted/40 p-4 rounded-xl border border-border/40 text-foreground inline-block select-all">
+              <p className="text-xs sm:text-sm md:text-base font-mono bg-muted/40 p-4 rounded-xl border border-border/40 text-foreground block sm:inline-block select-all break-words">
                 securesupport@nostds.in (PGP Key ID: 0x98A1FD88)
               </p>
             </div>
