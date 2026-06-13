@@ -93,7 +93,7 @@ function AppleIcon({
 
 export function Footer() {
   return (
-    <footer className="bg-background text-foreground relative overflow-hidden border-t border-border/40 rounded-t-[36px] shadow-[0_-12px_40px_rgba(0,0,0,0.03)] dark:shadow-[0_-12px_40px_rgba(0,0,0,0.25)]">
+    <footer className="bg-neutral-950 text-neutral-300 relative overflow-hidden border-t border-neutral-900 rounded-t-[36px] shadow-[0_-12px_40px_rgba(0,0,0,0.4)]">
       
       {/* Ambient center glow spot - mixes seamlessly with the theme bg */}
       <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[450px] h-[60px] bg-gradient-to-b from-primary/20 to-transparent rounded-full filter blur-2xl pointer-events-none z-10" />
@@ -105,24 +105,17 @@ export function Footer() {
           <div className="md:col-span-4 flex flex-col gap-4">
             <Link href="/" className="flex items-center gap-2 group">
               <Image
-                src="/images/logo-dark.png"
-                alt="SafeConnect Logo"
-                width={28}
-                height={28}
-                className="h-7 w-auto dark:hidden transition-transform duration-200 group-hover:scale-[1.02]"
-              />
-              <Image
                 src="/images/logo-light.png"
                 alt="SafeConnect Logo"
                 width={28}
                 height={28}
-                className="h-7 w-auto hidden dark:block transition-transform duration-200 group-hover:scale-[1.02]"
+                className="h-7 w-auto transition-transform duration-200 group-hover:scale-[1.02]"
               />
-              <span className="text-foreground text-xl font-extrabold tracking-tight">
+              <span className="text-white text-xl font-extrabold tracking-tight">
                 SafeConnect
               </span>
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
+            <p className="text-sm text-neutral-400 leading-relaxed max-w-sm">
               A confidential directory for STD testing centers and secure status verification for relationships.
             </p>
             
@@ -132,7 +125,7 @@ export function Footer() {
                 href="https://facebook.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-8 h-8 rounded-full bg-muted hover:bg-primary hover:text-white flex items-center justify-center text-muted-foreground transition-all duration-300 hover:scale-110 shadow-sm" 
+                className="w-8 h-8 rounded-full bg-neutral-900 hover:bg-primary hover:text-white flex items-center justify-center text-neutral-400 transition-all duration-300 hover:scale-110 shadow-sm" 
                 aria-label="Facebook"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -143,7 +136,7 @@ export function Footer() {
                 href="https://twitter.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-8 h-8 rounded-full bg-muted hover:bg-primary hover:text-white flex items-center justify-center text-muted-foreground transition-all duration-300 hover:scale-110 shadow-sm" 
+                className="w-8 h-8 rounded-full bg-neutral-900 hover:bg-primary hover:text-white flex items-center justify-center text-neutral-400 transition-all duration-300 hover:scale-110 shadow-sm" 
                 aria-label="Twitter"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -154,7 +147,7 @@ export function Footer() {
                 href="https://linkedin.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-8 h-8 rounded-full bg-muted hover:bg-primary hover:text-white flex items-center justify-center text-muted-foreground transition-all duration-300 hover:scale-110 shadow-sm" 
+                className="w-8 h-8 rounded-full bg-neutral-900 hover:bg-primary hover:text-white flex items-center justify-center text-neutral-400 transition-all duration-300 hover:scale-110 shadow-sm" 
                 aria-label="LinkedIn"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -165,7 +158,7 @@ export function Footer() {
                 href="https://instagram.com" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-8 h-8 rounded-full bg-muted hover:bg-primary hover:text-white flex items-center justify-center text-muted-foreground transition-all duration-300 hover:scale-110 shadow-sm" 
+                className="w-8 h-8 rounded-full bg-neutral-900 hover:bg-primary hover:text-white flex items-center justify-center text-neutral-400 transition-all duration-300 hover:scale-110 shadow-sm" 
                 aria-label="Instagram"
               >
                 <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -177,32 +170,32 @@ export function Footer() {
 
           {/* Quick Links Column */}
           <div className="md:col-span-2 md:col-start-6">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-200">
               Quick Links
             </h3>
             <ul className="mt-4 space-y-3">
               <li>
-                <Link href="/" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/" className="text-sm text-neutral-400 hover:text-primary transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/listings" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/listings" className="text-sm text-neutral-400 hover:text-primary transition-colors">
                   Browse Listings
                 </Link>
               </li>
               <li>
-                <Link href="/#how-it-works" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/#how-it-works" className="text-sm text-neutral-400 hover:text-primary transition-colors">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link href="/diagnostic-centers" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/diagnostic-centers" className="text-sm text-neutral-400 hover:text-primary transition-colors">
                   Add Your Center
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/privacy-policy" className="text-sm text-neutral-400 hover:text-primary transition-colors">
                   Privacy Policy
                 </Link>
               </li>
@@ -211,32 +204,32 @@ export function Footer() {
 
           {/* Resources Column */}
           <div className="md:col-span-2">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-200">
               Resources
             </h3>
             <ul className="mt-4 space-y-3">
               <li>
-                <Link href="/resources/std-info" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/resources/std-info" className="text-sm text-neutral-400 hover:text-primary transition-colors">
                   STD Information
                 </Link>
               </li>
               <li>
-                <Link href="/resources/testing-guidelines" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/resources/testing-guidelines" className="text-sm text-neutral-400 hover:text-primary transition-colors">
                   Testing Guidelines
                 </Link>
               </li>
               <li>
-                <Link href="/resources/safe-dating-tips" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/resources/safe-dating-tips" className="text-sm text-neutral-400 hover:text-primary transition-colors">
                   Safe Dating Tips
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/faq" className="text-sm text-neutral-400 hover:text-primary transition-colors">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link href="/contact" className="text-sm text-neutral-400 hover:text-primary transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -245,10 +238,10 @@ export function Footer() {
 
           {/* Stay Updated Column */}
           <div className="md:col-span-3 flex flex-col gap-3">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-foreground">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-200">
               Stay Updated
             </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm text-neutral-400 leading-relaxed">
               Subscribe to our newsletter for updates on new testing centers and health resources.
             </p>
             <form onSubmit={(e) => e.preventDefault()} className="flex gap-2 w-full mt-1">
@@ -256,9 +249,9 @@ export function Footer() {
                 type="email" 
                 placeholder="Your email" 
                 required
-                className="h-10 px-3.5 rounded-lg border border-border bg-background text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 w-full"
+                className="h-10 px-3.5 rounded-lg border border-neutral-800 bg-neutral-900 text-sm text-white placeholder:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-primary/50 w-full"
               />
-              <Button type="submit" size="sm" className="h-10 px-4">
+              <Button type="submit" size="sm" className="h-10 px-4 bg-primary text-white hover:bg-primary/90">
                 Subscribe
               </Button>
             </form>
@@ -267,11 +260,11 @@ export function Footer() {
         </div>
 
         {/* Bottom Disclaimer */}
-        <div className="mt-10 pt-6 border-t border-border/40 text-[11px] md:text-xs text-muted-foreground/60 leading-relaxed text-center md:text-left">
+        <div className="mt-10 pt-6 border-t border-neutral-900 text-[11px] md:text-xs text-neutral-500 leading-relaxed text-center md:text-left">
           {/* Copyright, Privacy Policy, Terms of Service */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-4">
-            <p className="text-sm text-muted-foreground">
-              &copy; 2026 Laravel. All rights reserved. | <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link> | <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+            <p className="text-sm text-neutral-400">
+              &copy; 2026 Laravel. All rights reserved. | <Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy Policy</Link> | <Link href="/terms-and-condition" className="hover:text-primary transition-colors">Terms of Service</Link>
             </p>
           </div>
           <p>

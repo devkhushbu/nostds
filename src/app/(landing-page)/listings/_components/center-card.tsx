@@ -249,7 +249,6 @@ export function CenterCard({ center }: { center: Center }) {
   );
 }
 
-/* ─────────────────────── LIST CARD (Horizontal) ─────────────────────── */
 export function CenterListCard({ center }: { center: Center }) {
   const [liked, setLiked] = useState(false);
   const [hoverBtn, setHoverBtn] = useState(false);
@@ -257,7 +256,7 @@ export function CenterListCard({ center }: { center: Center }) {
   return (
     <div
       className="
-        group relative flex flex-col md:flex-row w-full
+        group relative flex flex-col w-full
         rounded-[24px] overflow-hidden
         bg-card
         border border-border
@@ -266,173 +265,169 @@ export function CenterListCard({ center }: { center: Center }) {
         transition-all duration-300 hover:-translate-y-1
       "
     >
-      {/* LEFT SIDE: IMAGE (Responsive height/width) */}
-      <div className="relative w-full md:w-[260px] lg:w-[300px] h-[200px] md:h-auto overflow-hidden m-2.5 rounded-[18px] flex-shrink-0">
-        <Image
-          src={center.image}
-          alt={center.name}
-          width={400}
-          height={250}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/10 to-black/20" />
+      {/* Top Row: Image (left) & Details (right) */}
+      <div className="flex flex-row w-full items-stretch">
+        
+        {/* LEFT SIDE: IMAGE (Responsive height/width, horizontal on mobile) */}
+        <div className="relative w-[110px] sm:w-[220px] md:w-[260px] lg:w-[300px] h-[130px] sm:h-auto overflow-hidden m-2 sm:m-2.5 rounded-[14px] sm:rounded-[18px] flex-shrink-0">
+          <Image
+            src={center.image}
+            alt={center.name}
+            width={400}
+            height={250}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
 
-        {/* Top-left chips inside image */}
-        <div className="absolute top-3 left-3 flex items-center gap-1.5">
-          <span className="px-2.5 py-[5px] rounded-full bg-background/95 dark:bg-card/95 backdrop-blur-sm text-[11px] font-semibold text-foreground shadow-sm leading-none">
-            {center.tags[0]}
-          </span>
-          <span
-            className={`px-2.5 py-[5px] rounded-full text-[11px] font-bold text-white shadow-sm leading-none ${center.accentTagBg}`}
-          >
-            {center.tags[1]}
-          </span>
-        </div>
-
-        {/* Top-right: photo count */}
-        <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-[5px] rounded-full bg-black/40 backdrop-blur-sm">
-          <Camera className="size-3 text-white" />
-          <span className="text-white text-[11px] font-semibold leading-none">
-            {center.photoCount}
-          </span>
-        </div>
-      </div>
-
-      {/* RIGHT SIDE: CONTENT DETAILS */}
-      <div className="flex flex-col flex-1 p-6 justify-between">
-        <div>
-          {/* Header row: Title + Rating */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <h3 className="text-[17px] font-extrabold text-foreground leading-snug">
-              {center.name}
-            </h3>
-
-            <div className="flex items-center gap-1 flex-shrink-0">
-              <StarRating rating={center.rating} />
-              <span className="text-xs text-muted-foreground font-medium">
-                ({center.reviews} reviews)
-              </span>
-            </div>
-          </div>
-
-          {/* Description */}
-          <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed max-w-2xl">
-            {center.description}
-          </p>
-
-          {/* Location row */}
-          <div className="mt-3 flex items-center gap-[5px]">
-            <MapPin className={`size-[14px] flex-shrink-0 ${center.accentText}`} />
-            <span className={`text-[11px] font-bold tracking-[0.06em] uppercase ${center.accentText}`}>
-              {center.area}
+          {/* Top-left chips inside image */}
+          <div className="absolute top-2 left-2 sm:top-3 sm:left-3 flex items-center gap-1">
+            <span className="px-1.5 py-[3px] sm:px-2.5 sm:py-[5px] rounded-full bg-background/95 dark:bg-card/95 backdrop-blur-sm text-[9px] sm:text-[11px] font-semibold text-foreground shadow-sm leading-none">
+              {center.tags[0]}
             </span>
           </div>
 
-          {/* Stats row - flat horizontal layout on list card */}
-          <div className="flex flex-wrap gap-4 mt-5 mb-1">
-            {center.stats.map((stat, i) => {
-              const Icon = stat.icon;
-              const isCall = Icon === Phone;
-              const bgCol = isCall ? "rgba(16,185,129,0.1)" : `${center.accentIconBg}50`;
-              const iconCol = isCall ? "#10b981" : center.accentIconColor;
-              return (
-                <div
-                  key={i}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-xl border border-border"
-                  style={{ backgroundColor: bgCol }}
-                >
-                  <Icon
-                    className="size-[15px]"
-                    style={{ color: iconCol }}
-                    strokeWidth={2}
-                  />
-                  <span className="text-[11px] font-bold tracking-wide text-foreground">
-                    {stat.label}
-                  </span>
-                </div>
-              );
-            })}
+          {/* Top-right: photo count */}
+          <div className="absolute top-2 right-2 sm:top-3 sm:right-3 flex items-center gap-0.5 px-1.5 py-[3px] sm:px-2 sm:py-[5px] rounded-full bg-black/40 backdrop-blur-sm">
+            <Camera className="size-2.5 sm:size-3 text-white" />
+            <span className="text-white text-[9px] sm:text-[11px] font-semibold leading-none">
+              {center.photoCount}
+            </span>
           </div>
-        </div>
 
-        {/* Divider */}
-        <div className="mt-6 mb-4 h-px bg-border" />
-
-        {/* Footer row: Doctor Avatar + Actions */}
-        <div className="flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
-          <div className="flex items-center gap-2.5">
+          {/* Doctor Info Overlay at the bottom of the image container (Floating Pill Capsule) */}
+          <div className="absolute bottom-2 left-2 w-fit max-w-[calc(100%-16px)] flex items-center gap-1.5 sm:gap-2 bg-neutral-950/85 backdrop-blur-md p-1 sm:p-1.5 rounded-full border border-white/10 shadow-[0_4px_16px_rgba(0,0,0,0.3)] select-none">
             <div
-              className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ backgroundColor: center.accentAvatarBg }}
+              className="w-5.5 h-5.5 sm:w-8 sm:h-8 rounded-full flex items-center justify-center flex-shrink-0 bg-white text-[8px] sm:text-[11px] font-black"
             >
-              <span className="text-[11px] font-black" style={{ color: center.accentAvatarFg }}>
+              <span style={{ color: center.accentAvatarFg }}>
                 {center.doctor.avatar}
               </span>
             </div>
-            <div className="flex flex-col">
-              <span className="text-[13px] font-bold text-foreground leading-none">
+            <div className="flex flex-col min-w-0 text-left">
+              <span className="text-[8px] sm:text-[11px] font-black text-white leading-none truncate pr-1">
                 {center.doctor.name}
               </span>
-              <span className="text-[11px] text-muted-foreground mt-0.5">
-                Lab Consultant & Specialist
+              <span className="text-[6px] sm:text-[8px] text-neutral-400 font-medium leading-none mt-0.5 truncate">
+                Specialist
               </span>
             </div>
           </div>
+        </div>
 
-          {/* Actions Column */}
-          <div className="flex items-center gap-3">
-            {/* Heart and Share */}
-            <div className="flex gap-2">
-              <button
-                onClick={() => setLiked((v) => !v)}
-                className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:border-rose-300 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition-all duration-200"
-              >
-                <Heart
-                  className={`size-[15px] transition-colors duration-200 ${
-                    liked ? "fill-rose-500 text-rose-500" : "text-muted-foreground"
-                  }`}
-                />
-              </button>
-              <button className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-all duration-200">
-                <Share2 className="size-[15px] text-muted-foreground" />
-              </button>
+        {/* RIGHT SIDE: CONTENT DETAILS (without divider or buttons inside) */}
+        <div className="flex flex-col flex-1 p-3 sm:p-6 justify-center min-w-0">
+          <div>
+            {/* Header row: Title + Rating */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
+              <h3 className="text-[13px] xs:text-[14px] sm:text-[17px] font-extrabold text-foreground leading-tight sm:leading-snug truncate">
+                {center.name}
+              </h3>
+
+              <div className="flex items-center gap-1 flex-shrink-0">
+                <StarRating rating={center.rating} />
+                <span className="text-[10px] sm:text-xs text-muted-foreground font-medium">
+                  ({center.reviews})
+                </span>
+              </div>
             </div>
 
-            {/* Call Now and View Details side-by-side in a row */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => window.open(`tel:${center.id}`)}
-                className="
-                  flex items-center justify-center gap-1.5
-                  bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs tracking-wide
-                  rounded-full py-2.5 px-4 hover:-translate-y-[1px] transition-all duration-200
-                  shadow-md shadow-emerald-600/10 hover:shadow-emerald-600/20 cursor-pointer
-                "
-              >
-                <Phone className="size-3.5" />
-                Call Now
-              </button>
+            {/* Description */}
+            <p className="mt-1 sm:mt-2 text-[11px] sm:text-[13px] text-muted-foreground leading-relaxed max-w-2xl line-clamp-1 xs:line-clamp-2 sm:line-clamp-none">
+              {center.description}
+            </p>
 
-              <Link
-                href={`/listings/${center.id}`}
-                onMouseEnter={() => setHoverBtn(true)}
-                onMouseLeave={() => setHoverBtn(false)}
-                className="
-                  flex items-center justify-center gap-1.5
-                  text-white font-bold text-xs tracking-wide
-                  rounded-full py-2.5 px-4 hover:-translate-y-[1px] transition-all duration-200 cursor-pointer
-                  min-w-[120px]
-                "
-                style={{
-                  backgroundColor: hoverBtn ? center.accentBtnHover : center.accentBtn,
-                  boxShadow: `0 4px 15px ${center.accentShadow}`,
-                }}
-              >
-                View Details
-                <ArrowUpRight className="size-[13px] text-white" />
-              </Link>
+            {/* Location row */}
+            <div className="mt-1.5 sm:mt-3 flex items-center gap-1 sm:gap-[5px]">
+              <MapPin className={`size-3 sm:size-[14px] flex-shrink-0 ${center.accentText}`} />
+              <span className={`text-[9px] sm:text-[11px] font-bold tracking-[0.06em] uppercase ${center.accentText} truncate`}>
+                {center.area}
+              </span>
+            </div>
+
+            {/* Stats row - flat horizontal layout on list card */}
+            <div className="flex flex-wrap gap-1.5 sm:gap-4 mt-2 sm:mt-5">
+              {center.stats.map((stat, i) => {
+                const Icon = stat.icon;
+                const isCall = Icon === Phone;
+                const bgCol = isCall ? "rgba(16,185,129,0.1)" : `${center.accentIconBg}50`;
+                const iconCol = isCall ? "#10b981" : center.accentIconColor;
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center gap-1 sm:gap-2 px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl border border-border"
+                    style={{ backgroundColor: bgCol }}
+                  >
+                    <Icon
+                      className="size-3 sm:size-[15px]"
+                      style={{ color: iconCol }}
+                      strokeWidth={2}
+                    />
+                    <span className="text-[9px] sm:text-[11px] font-bold tracking-wide text-foreground">
+                      {stat.label}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
+        </div>
+
+      </div>
+
+      {/* Full-width Divider */}
+      <div className="h-px bg-border/60 w-full" />
+
+      {/* Bottom Row: Full-width Footer actions (spanning all the way across the card) */}
+      <div className="flex items-center justify-between gap-3 px-3 py-3 sm:px-6 sm:py-4 bg-muted/10 w-full rounded-b-[24px]">
+        {/* Heart and Share (Circular pill style from screenshot) */}
+        <div className="flex items-center gap-2">
+          <button
+            onClick={() => setLiked((v) => !v)}
+            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center hover:border-rose-300 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition-all duration-200 shadow-sm bg-card cursor-pointer"
+          >
+            <Heart
+              className={`size-4 sm:size-[17px] transition-colors duration-200 ${
+                liked ? "fill-rose-500 text-rose-500" : "text-muted-foreground"
+              }`}
+            />
+          </button>
+          <button className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-all duration-200 shadow-sm bg-card cursor-pointer">
+            <Share2 className="size-4 sm:size-[17px] text-muted-foreground" />
+          </button>
+        </div>
+
+        {/* Call Now and View Details side-by-side in a row (Pill shape from screenshot) */}
+        <div className="flex items-center gap-2 flex-1 sm:flex-none justify-end">
+          <button
+            onClick={() => window.open(`tel:${center.id}`)}
+            className="
+              flex-1 sm:flex-none flex items-center justify-center gap-1.5
+              bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] sm:text-xs tracking-wide
+              rounded-full h-9 sm:h-10 px-3.5 sm:px-5 hover:-translate-y-[1px] transition-all duration-200
+              shadow-md shadow-emerald-600/10 hover:shadow-emerald-600/20 cursor-pointer
+            "
+          >
+            <Phone className="size-3.5 sm:size-4" />
+            <span>Call</span>
+          </button>
+
+          <Link
+            href={`/listings/${center.id}`}
+            onMouseEnter={() => setHoverBtn(true)}
+            onMouseLeave={() => setHoverBtn(false)}
+            className="
+              flex-1 sm:flex-none flex items-center justify-center gap-1
+              text-white font-bold text-[11px] sm:text-xs tracking-wide
+              rounded-full h-9 sm:h-10 px-3.5 sm:px-5 hover:-translate-y-[1px] transition-all duration-200 cursor-pointer
+              text-center min-w-[70px] sm:min-w-[90px]
+            "
+            style={{
+              backgroundColor: hoverBtn ? center.accentBtnHover : center.accentBtn,
+              boxShadow: `0 4px 15px ${center.accentShadow}`,
+            }}
+          >
+            <span>Details</span>
+          </Link>
         </div>
       </div>
     </div>

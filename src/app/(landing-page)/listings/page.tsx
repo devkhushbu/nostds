@@ -24,7 +24,7 @@ export default function ListingsPage() {
 
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 6;
 
   // Reset pagination when search queries or filters change
   React.useEffect(() => {
