@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   LucideIcon,
   Star,
@@ -225,7 +226,8 @@ export function CenterCard({ center }: { center: Center }) {
             Call Now
           </button>
           
-          <button
+          <Link
+            href={`/listings/${center.id}`}
             onMouseEnter={() => setHoverBtn(true)}
             onMouseLeave={() => setHoverBtn(false)}
             className="
@@ -240,7 +242,7 @@ export function CenterCard({ center }: { center: Center }) {
           >
             Details
             <ArrowUpRight className="size-3.5" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -411,7 +413,8 @@ export function CenterListCard({ center }: { center: Center }) {
                 Call Now
               </button>
 
-              <button
+              <Link
+                href={`/listings/${center.id}`}
                 onMouseEnter={() => setHoverBtn(true)}
                 onMouseLeave={() => setHoverBtn(false)}
                 className="
@@ -427,7 +430,7 @@ export function CenterListCard({ center }: { center: Center }) {
               >
                 View Details
                 <ArrowUpRight className="size-[13px] text-white" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,13 +1,40 @@
 import { FlaskConical, Clock, ShieldCheck } from "lucide-react";
 import { Center } from "./center-card";
 
-export const mockCenters: (Center & {
+export interface CenterDetail {
+  slug?: string;
+  subHeading?: string;
+  operatingHoursText?: string;
+  certificates?: string[];
+  startingPrice?: number;
+  aboutText?: string;
+  facilities?: string[];
+  services?: {
+    name: string;
+    provider: string;
+    price: number;
+    timing: string;
+  }[];
+  address?: string;
+  distance?: string;
+  reviewsList?: {
+    author: string;
+    date: string;
+    rating: number;
+    comment: string;
+    isAnonymous?: boolean;
+  }[];
+}
+
+export interface CenterItem extends Center, CenterDetail {
   isClinic: boolean;
   isLab: boolean;
   hasSameDayResults: boolean;
   isAnonymous: boolean;
   hasHomeCollection: boolean;
-})[] = [
+}
+
+export const mockCenters: CenterItem[] = [
   // Bihar Centers (7 items for pagination testing)
   {
     id: "patna-diagnostics-boring-road",
@@ -48,6 +75,20 @@ export const mockCenters: (Center & {
     hasSameDayResults: true,
     isAnonymous: true,
     hasHomeCollection: true,
+    slug: "patna-diagnostics-boring-road",
+    subHeading: "Confidential STD & Sexual Health Testing • Boring Road",
+    operatingHoursText: "Mon- Sat: 8 Am To 8 Pm, Sun: 8 Am To 4 Pm",
+    certificates: ["Verified Center", "NABL Certified Lab"],
+    startingPrice: 999,
+    aboutText: "Patna Diagnostics & Research Center is the premier clinical lab in Boring Road, Patna. It is widely recognized for highly accurate blood tests, sexual health checkups, and fast digital report deliveries.\n\n### Specialized Clinical Testing\n- Same-day processing for all major STD panels.\n- Fully automated blood analysis under certified supervision.\n- Advanced testing machinery with high sensitivity standards.\n\n### Patient Confidentiality Measures\n- Anonymous booking using dynamic alphanumeric IDs.\n- Private waiting rooms with strict confidentiality policies.\n- 100% discrete home collection envelopes with unmarked packaging.",
+    facilities: ["Blood Tests", "ECG", "STD Screening", "Confidential Consultation"],
+    services: [
+      { name: "Blood Tests and Health Checkup Packages (Free Home Collection)", provider: "Redcliffe Labs Patna", price: 2499, timing: "Home Collection: 7 AM to 3 PM" },
+      { name: "MRI Scans, CT Scans, X-Rays, Blood Tests and health checkups", provider: "Patna Scans & Labs", price: 2499, timing: "8 AM to 8 PM" },
+      { name: "Full Panel Sexually Transmitted Infection (STI) Profile", provider: "Patna Diagnostics & Research Center", price: 1999, timing: "Same Day Reporting" }
+    ],
+    address: "P 120, Boring Road, Near Crossing, Patna, Bihar 800001",
+    distance: "~1.5 km from center",
   },
   {
     id: "nalanda-pathlabs-patna",
@@ -270,8 +311,8 @@ export const mockCenters: (Center & {
     name: "JMD Diagnostics Pvt Ltd",
     area: "PARK STREET, KOLKATA",
     locationState: "west bengal",
-    rating: 4.6,
-    reviews: 128,
+    rating: 4.8,
+    reviews: 324,
     image: "/images/center-jmd.png",
     photoCount: 8,
     description:
@@ -299,6 +340,30 @@ export const mockCenters: (Center & {
     hasSameDayResults: true,
     isAnonymous: true,
     hasHomeCollection: false,
+    slug: "jmd-diagnostics-kolkata",
+    subHeading: "Confidential STD & Sexual Health Testing • West Bengal",
+    operatingHoursText: "Mon- Sat: 8 Am To 8 Pm ,Sun : 8 Am To 4 Pm",
+    certificates: ["Verified Center", "NABL Certified Lab"],
+    startingPrice: 999,
+    aboutText: "JMD Diagnostics Pvt Ltd is located in Kolkata. JMD Diagnostic Centre has a good reputation in Kolkata. This lab has the facility for Mri scans, CT scans, Ultrasound, Blood Tests & ECG.\n\nJMD Phoolbagan lab has the latest and most modern technology of machines. All modes of payment are accepted here. You can search your tests along with the prices online. It has received 3.2 ratings from Google users and 4.0 ratings from Justdial users.\n\nYou can get all information related to timing, location, address, map, and test prices on this page. All tests are to be done under the supervision of a skilled & qualified technician. You can get up to a 50% discount. You can also book your tests online here.",
+    facilities: ["Mri scans", "CT scans", "Ultrasound", "Blood Tests", "ECG"],
+    services: [
+      { name: "Blood Tests and Health Checkup Packages (Free Home Collection)", provider: "Redcliffe Labs Kolkata", price: 2499, timing: "Home Collection: 7 AM to 3 PM" },
+      { name: "MRI Scans, CT Scans, X-Rays, Blood Tests and Health Checkups", provider: "Aarthi Scans Bhowanipore [Kolkata]", price: 2499, timing: "24 Hours. Ultrasound Time May Vary." },
+      { name: "Blood Tests and Health Checkup Packages (Free Home Collection)", provider: "Redcliffe Labs Kolkata", price: 2499, timing: "Home Collection: 7 AM to 3 PM" },
+      { name: "MRI scans, CT scans, ECG, Echo, Blood tests and health checkups", provider: "Aarthi Scans & Labs- Netaji Nagar, Kolkata", price: 2499, timing: "Mon to Sun: 06:30am–10:00pm" },
+      { name: "Blood Tests and Health Checkup Packages (Free Home Collection)", provider: "Redcliffe Labs Kolkata", price: 2499, timing: "Home Collection: 7 AM to 3 PM" }
+    ],
+    address: "P 336, CIT Rd, Phool Bagan, Kankurgachi, Kolkata, West Bengal 700054",
+    distance: "~3.2 km from city center",
+    reviewsList: [
+      {
+        author: "Anonymous Patient",
+        date: "January 15, 2026",
+        rating: 5,
+        comment: "Very professional, discreet, and fast. Got results the same evening. Staff made me feel comfortable — highly recommend for anyone anxious about testing."
+      }
+    ]
   },
   {
     id: "vijaya-diagnostic-nallagandla",
@@ -334,6 +399,19 @@ export const mockCenters: (Center & {
     hasSameDayResults: true,
     isAnonymous: true,
     hasHomeCollection: false,
+    slug: "vijaya-diagnostic-nallagandla",
+    subHeading: "Premium Diagnostic Solutions & Sexual Wellness Diagnostics • Hyderabad",
+    operatingHoursText: "Mon-Sat: 7 AM to 9 PM, Sun: 7 AM to 2 PM",
+    certificates: ["CAP Certified Lab", "NABL Accredited"],
+    startingPrice: 1199,
+    aboutText: "Vijaya Diagnostic Centre in Nallagandla, Hyderabad is a premium branch of South India's largest diagnostic network. It offers high-precision diagnostics, blood panels, and completely confidential STD testing supervised by leading clinical pathologists.\n\n### Why Patients Trust Vijaya Nallagandla\n- India's leading fully automated laboratory workflow.\n- Coded patient registrations to preserve complete privacy.\n- CAP & NABL accredited reporting with absolute accuracy.\n- Clean, modern, and friendly facility with private screening sections.",
+    facilities: ["Automated Clinical Pathlab", "Blood Testing", "Confidential Consultations", "Cardiology Checks", "Pathology Profiles"],
+    services: [
+      { name: "Blood Tests and Health Checkup Packages (Free Home Collection)", provider: "Redcliffe Labs Hyderabad", price: 2499, timing: "Home Collection: 7 AM to 3 PM" },
+      { name: "Full Panel Sexually Transmitted Infection (STI) Profile", provider: "Vijaya Diagnostic Centre", price: 1999, timing: "Same Day Reporting" }
+    ],
+    address: "Plot No. 14, HUDA Layout, Nallagandla, Gachibowli, Hyderabad, Telangana 500019",
+    distance: "~2.4 km from city center",
   },
   {
     id: "metro-diagnostics-chandigarh",
@@ -369,6 +447,19 @@ export const mockCenters: (Center & {
     hasSameDayResults: false,
     isAnonymous: true,
     hasHomeCollection: true,
+    slug: "metro-diagnostics-chandigarh",
+    subHeading: "Accredited Clinical Pathology & Sexual Health Profile Testing • Sector 17",
+    operatingHoursText: "Mon-Sat: 7 AM to 7 PM, Sun: 8 AM to 2 PM",
+    certificates: ["ISO 9001 Certified", "Verified Center"],
+    startingPrice: 899,
+    aboutText: "Metro Diagnostics Centre in Sector 17, Chandigarh is a premium laboratory offering a wide range of pathological tests and secure STD screening checkups. It is equipped with advanced clinical machinery to deliver reliable reports in Punjab and Chandigarh region.\n\n### Specialty Health Screenings\n- Rapid-result sexual health profile checkups.\n- Coded laboratory registration for maximum privacy.\n- Home sample collection in unmarked envelopes by professional technicians.\n- Online report retrieval with secure 256-bit encryption.",
+    facilities: ["Clinical Lab", "Blood Tests", "Home Collection", "Discreet Screening", "Pathology Specialist"],
+    services: [
+      { name: "Blood Tests and Health Checkup Packages (Free Home Collection)", provider: "Metro Diagnostics Chandigarh", price: 2499, timing: "Home Collection: 7 AM to 3 PM" },
+      { name: "Full Panel Sexually Transmitted Infection (STI) Profile", provider: "Metro Diagnostics Chandigarh", price: 1999, timing: "Same Day Reporting" }
+    ],
+    address: "SCO 142-143, Sector 17-C, Chandigarh, Punjab 160017",
+    distance: "~1.2 km from city center",
   },
   {
     id: "apollo-diagnostics-delhi",
@@ -409,6 +500,19 @@ export const mockCenters: (Center & {
     hasSameDayResults: true,
     isAnonymous: true,
     hasHomeCollection: true,
+    slug: "apollo-diagnostics-delhi",
+    subHeading: "Premium Full-Panel STD Screening & Clinical Pathology • Connaught Place",
+    operatingHoursText: "Mon-Sat: 6 AM to 10 PM, Sun: 7 AM to 5 PM",
+    certificates: ["CAP Accredited", "NABL Certified", "ISO 15189"],
+    startingPrice: 1499,
+    aboutText: "Apollo Diagnostics is a leading clinical laboratory in Connaught Place, New Delhi. Backed by Apollo Health & Lifestyle, it is known for high-accuracy blood tests, anonymous STD screening, and quick turnaround times.\n\n### Why Choose Apollo Connaught Place?\n- Advanced diagnostic machinery for same-day clinical reports.\n- 100% confidential checkups with anonymous reporting.\n- CAP & NABL accredited laboratory processes.\n- Qualified pathologists supervising every profile check.\n\n### Patient Guidelines\n- No prior doctor prescription is required for walk-in STD screening.\n- Home sample collection is completely private, sent in unmarked sealed envelopes.\n- Patients receive digital access to download reports online.",
+    facilities: ["NABL Certified Lab", "Blood Tests", "Home Collection", "Specialist Consultation", "Confidential Screenings"],
+    services: [
+      { name: "Blood Tests and Health Checkup Packages (Free Home Collection)", provider: "Apollo Diagnostics Delhi", price: 2499, timing: "Home Collection: 7 AM to 3 PM" },
+      { name: "Full Panel Sexually Transmitted Infection (STI) Profile", provider: "Apollo Diagnostics Delhi", price: 1999, timing: "Same Day Reporting" }
+    ],
+    address: "H-4, Connaught Circus, Block H, Connaught Place, New Delhi, Delhi 110001",
+    distance: "~0.5 km from metro station",
   },
   {
     id: "std-clinic-mumbai",
@@ -444,6 +548,19 @@ export const mockCenters: (Center & {
     hasSameDayResults: true,
     isAnonymous: true,
     hasHomeCollection: false,
+    slug: "std-clinic-mumbai",
+    subHeading: "Specialized Sexual Health Consultation & Anonymous STD Panels • Andheri West",
+    operatingHoursText: "Mon-Sat: 9 AM to 8 PM, Sun: Closed",
+    certificates: ["Certified Venereologist", "100% Confidential Guarantee"],
+    startingPrice: 1299,
+    aboutText: "ConfidentialCare STD Clinic in Andheri West, Mumbai is a state-of-the-art clinic specializing in sexual wellness, venereology consultations, and rapid-delivery diagnostic tests. Led by Dr. N. Shah, the clinic focuses on offering safe, respectful, and fully anonymous counseling and diagnostics.\n\n### Confidential Sexual Wellness Services\n- Expert consultations for all types of sexually transmitted infections (STIs).\n- Absolute patient anonymity with zero record leaks.\n- Coded diagnostics and testing to protect identity.\n- Counseling support for patients before and after screenings.",
+    facilities: ["Specialist Doctor Consultations", "Confidential STI Profiles", "Pre-test Counseling", "Rapid Reporting Lab"],
+    services: [
+      { name: "Blood Tests and Health Checkup Packages (Free Home Collection)", provider: "Redcliffe Labs Mumbai", price: 2499, timing: "Home Collection: 7 AM to 3 PM" },
+      { name: "Full Panel Sexually Transmitted Infection (STI) Profile", provider: "ConfidentialCare STD Clinic", price: 1999, timing: "Same Day Reporting" }
+    ],
+    address: "SCO 201, Andheri Link Road, Andheri West, Mumbai, Maharashtra 400053",
+    distance: "~1.8 km from metro station",
   },
   {
     id: "healthfirst-bangalore",
