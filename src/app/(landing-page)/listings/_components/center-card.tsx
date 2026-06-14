@@ -12,6 +12,7 @@ import {
   Share2,
   Camera,
   Phone,
+  Clock,
 } from "lucide-react";
 
 export interface Center {
@@ -140,30 +141,32 @@ export function CenterCard({ center }: { center: Center }) {
         <div className="mt-[16px] mb-[14px] h-px bg-border" />
 
         {/* Stats row */}
-        <div className="grid grid-cols-3 gap-2">
-          {center.stats.map((stat, i) => {
-            const Icon = stat.icon;
-            const isCall = Icon === Phone;
-            const bgCol = isCall ? "rgba(16,185,129,0.1)" : center.accentIconBg;
-            const iconCol = isCall ? "#10b981" : center.accentIconColor;
-            return (
-              <div key={i} className="flex flex-col items-center gap-[7px]">
-                <div
-                  className="w-full flex items-center justify-center rounded-xl py-2.5"
-                  style={{ backgroundColor: bgCol }}
-                >
-                  <Icon
-                    className="size-[18px]"
-                    style={{ color: iconCol }}
-                    strokeWidth={1.8}
-                  />
+        <div className="grid grid-cols-2 gap-2">
+          {center.stats
+            .filter((stat) => stat.icon !== Clock)
+            .map((stat, i) => {
+              const Icon = stat.icon;
+              const isCall = Icon === Phone;
+              const bgCol = isCall ? "rgba(16,185,129,0.1)" : center.accentIconBg;
+              const iconCol = isCall ? "#10b981" : center.accentIconColor;
+              return (
+                <div key={i} className="flex flex-col items-center gap-[7px]">
+                  <div
+                    className="w-full flex items-center justify-center rounded-xl py-2.5"
+                    style={{ backgroundColor: bgCol }}
+                  >
+                    <Icon
+                      className="size-[18px]"
+                      style={{ color: iconCol }}
+                      strokeWidth={1.8}
+                    />
+                  </div>
+                  <span className="text-[10.5px] font-bold tracking-[0.04em] text-muted-foreground text-center">
+                    {stat.label}
+                  </span>
                 </div>
-                <span className="text-[10.5px] font-bold tracking-[0.04em] text-muted-foreground text-center">
-                  {stat.label}
-                </span>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
 
         {/* Divider */}
@@ -269,7 +272,7 @@ export function CenterListCard({ center }: { center: Center }) {
       <div className="flex flex-row w-full items-stretch">
         
         {/* LEFT SIDE: IMAGE (Responsive height/width, horizontal on mobile) */}
-        <div className="relative w-[110px] sm:w-[220px] md:w-[260px] lg:w-[300px] h-[130px] sm:h-auto overflow-hidden m-2 sm:m-2.5 rounded-[14px] sm:rounded-[18px] flex-shrink-0">
+        <div className="relative w-[130px] sm:w-[220px] md:w-[260px] lg:w-[300px] h-auto overflow-hidden ml-2 mr-1 my-2 sm:m-2.5 rounded-[14px] sm:rounded-[18px] flex-shrink-0">
           <Image
             src={center.image}
             alt={center.name}
@@ -315,21 +318,12 @@ export function CenterListCard({ center }: { center: Center }) {
         </div>
 
         {/* RIGHT SIDE: CONTENT DETAILS (without divider or buttons inside) */}
-        <div className="flex flex-col flex-1 p-3 sm:p-6 justify-center min-w-0">
+        <div className="flex flex-col flex-1 pl-1.5 pr-2.5 py-2.5 sm:p-6 justify-center min-w-0">
           <div>
-            {/* Header row: Title + Rating */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2">
-              <h3 className="text-[13px] xs:text-[14px] sm:text-[17px] font-extrabold text-foreground leading-tight sm:leading-snug truncate">
-                {center.name}
-              </h3>
-
-              <div className="flex items-center gap-1 flex-shrink-0">
-                <StarRating rating={center.rating} />
-                <span className="text-[10px] sm:text-xs text-muted-foreground font-medium">
-                  ({center.reviews})
-                </span>
-              </div>
-            </div>
+            {/* Header row: Title */}
+            <h3 className="text-[13px] xs:text-[14px] sm:text-[17px] font-extrabold text-foreground leading-tight sm:leading-snug truncate">
+              {center.name}
+            </h3>
 
             {/* Description */}
             <p className="mt-1 sm:mt-2 text-[11px] sm:text-[13px] text-muted-foreground leading-relaxed max-w-2xl line-clamp-1 xs:line-clamp-2 sm:line-clamp-none">
@@ -346,88 +340,94 @@ export function CenterListCard({ center }: { center: Center }) {
 
             {/* Stats row - flat horizontal layout on list card */}
             <div className="flex flex-wrap gap-1.5 sm:gap-4 mt-2 sm:mt-5">
-              {center.stats.map((stat, i) => {
-                const Icon = stat.icon;
-                const isCall = Icon === Phone;
-                const bgCol = isCall ? "rgba(16,185,129,0.1)" : `${center.accentIconBg}50`;
-                const iconCol = isCall ? "#10b981" : center.accentIconColor;
-                return (
-                  <div
-                    key={i}
-                    className="flex items-center gap-1 sm:gap-2 px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl border border-border"
-                    style={{ backgroundColor: bgCol }}
-                  >
-                    <Icon
-                      className="size-3 sm:size-[15px]"
-                      style={{ color: iconCol }}
-                      strokeWidth={2}
-                    />
-                    <span className="text-[9px] sm:text-[11px] font-bold tracking-wide text-foreground">
-                      {stat.label}
-                    </span>
-                  </div>
-                );
-              })}
+              {center.stats
+                .filter((stat) => stat.icon !== Clock)
+                .map((stat, i) => {
+                  const Icon = stat.icon;
+                  const isCall = Icon === Phone;
+                  const bgCol = isCall ? "rgba(16,185,129,0.1)" : `${center.accentIconBg}50`;
+                  const iconCol = isCall ? "#10b981" : center.accentIconColor;
+                  return (
+                    <div
+                      key={i}
+                      className="flex items-center gap-1 sm:gap-2 px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-lg sm:rounded-xl border border-border"
+                      style={{ backgroundColor: bgCol }}
+                    >
+                      <Icon
+                        className="size-3 sm:size-[15px]"
+                        style={{ color: iconCol }}
+                        strokeWidth={2}
+                      />
+                      <span className="text-[9px] sm:text-[11px] font-bold tracking-wide text-foreground">
+                        {stat.label}
+                      </span>
+                    </div>
+                  );
+                })}
+            </div>
+
+            {/* Rating, Like & Share row (these three in one row) */}
+            <div className="flex flex-nowrap items-center justify-between gap-1 mt-3 sm:mt-5">
+              {/* Rating */}
+              <div className="flex items-center gap-0.5 sm:gap-1 flex-shrink-0">
+                <StarRating rating={center.rating} />
+                <span className="text-[9px] sm:text-xs text-muted-foreground font-medium">
+                  ({center.reviews})
+                </span>
+              </div>
+
+              {/* Heart and Share (Circular pill style) */}
+              <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                <button
+                  onClick={() => setLiked((v) => !v)}
+                  className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center hover:border-rose-300 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition-all duration-200 bg-card cursor-pointer"
+                >
+                  <Heart
+                    className={`size-[14px] sm:size-[17px] transition-colors duration-200 ${
+                      liked ? "fill-rose-500 text-rose-500" : "text-muted-foreground"
+                    }`}
+                  />
+                </button>
+                <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-all duration-200 bg-card cursor-pointer">
+                  <Share2 className="size-[14px] sm:size-[17px] text-muted-foreground" />
+                </button>
             </div>
           </div>
         </div>
 
-      </div>
+          {/* Call and Details CTA Buttons inside the details column */}
+          <div className="flex items-center gap-2 mt-4 sm:mt-5 flex-shrink-0">
+            <button
+              onClick={() => window.open(`tel:${center.id}`)}
+              className="
+                flex-1 flex items-center justify-center gap-1.5
+                bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] sm:text-xs tracking-wide
+                rounded-full h-9 sm:h-10 px-2.5 sm:px-4 hover:-translate-y-[1px] transition-all duration-200
+                shadow-md shadow-emerald-600/10 hover:shadow-emerald-600/20 cursor-pointer
+              "
+            >
+              <Phone className="size-3.5 sm:size-4" />
+              <span>Call</span>
+            </button>
 
-      {/* Full-width Divider */}
-      <div className="h-px bg-border/60 w-full" />
-
-      {/* Bottom Row: Full-width Footer actions (spanning all the way across the card) */}
-      <div className="flex items-center justify-between gap-3 px-3 py-3 sm:px-6 sm:py-4 bg-muted/10 w-full rounded-b-[24px]">
-        {/* Heart and Share (Circular pill style from screenshot) */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setLiked((v) => !v)}
-            className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center hover:border-rose-300 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition-all duration-200 shadow-sm bg-card cursor-pointer"
-          >
-            <Heart
-              className={`size-4 sm:size-[17px] transition-colors duration-200 ${
-                liked ? "fill-rose-500 text-rose-500" : "text-muted-foreground"
-              }`}
-            />
-          </button>
-          <button className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-border flex items-center justify-center hover:bg-muted transition-all duration-200 shadow-sm bg-card cursor-pointer">
-            <Share2 className="size-4 sm:size-[17px] text-muted-foreground" />
-          </button>
-        </div>
-
-        {/* Call Now and View Details side-by-side in a row (Pill shape from screenshot) */}
-        <div className="flex items-center gap-2 flex-1 sm:flex-none justify-end">
-          <button
-            onClick={() => window.open(`tel:${center.id}`)}
-            className="
-              flex-1 sm:flex-none flex items-center justify-center gap-1.5
-              bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] sm:text-xs tracking-wide
-              rounded-full h-9 sm:h-10 px-3.5 sm:px-5 hover:-translate-y-[1px] transition-all duration-200
-              shadow-md shadow-emerald-600/10 hover:shadow-emerald-600/20 cursor-pointer
-            "
-          >
-            <Phone className="size-3.5 sm:size-4" />
-            <span>Call</span>
-          </button>
-
-          <Link
-            href={`/listings/${center.id}`}
-            onMouseEnter={() => setHoverBtn(true)}
-            onMouseLeave={() => setHoverBtn(false)}
-            className="
-              flex-1 sm:flex-none flex items-center justify-center gap-1
-              text-white font-bold text-[11px] sm:text-xs tracking-wide
-              rounded-full h-9 sm:h-10 px-3.5 sm:px-5 hover:-translate-y-[1px] transition-all duration-200 cursor-pointer
-              text-center min-w-[70px] sm:min-w-[90px]
-            "
-            style={{
-              backgroundColor: hoverBtn ? center.accentBtnHover : center.accentBtn,
-              boxShadow: `0 4px 15px ${center.accentShadow}`,
-            }}
-          >
-            <span>Details</span>
-          </Link>
+            <Link
+              href={`/listings/${center.id}`}
+              onMouseEnter={() => setHoverBtn(true)}
+              onMouseLeave={() => setHoverBtn(false)}
+              className="
+                flex-1 flex items-center justify-center gap-1
+                text-white font-bold text-[11px] sm:text-xs tracking-wide
+                rounded-full h-9 sm:h-10 px-2.5 sm:px-4 hover:-translate-y-[1px] transition-all duration-200 cursor-pointer
+                text-center min-w-[70px] sm:min-w-[90px]
+              "
+              style={{
+                backgroundColor: hoverBtn ? center.accentBtnHover : center.accentBtn,
+                boxShadow: `0 4px 15px ${center.accentShadow}`,
+              }}
+            >
+              <span>Details</span>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
