@@ -31,7 +31,7 @@ export default function CtaBannerSection() {
       <div className="absolute inset-0 bg-black/30" />
 
       {/* ── Content ── */}
-      <div className="relative z-10 max-w-6xl mx-auto px-5 md:px-8 py-20 md:py-28 flex flex-col items-center text-center gap-6">
+      <div className="relative z-10 max-w-6xl mx-auto px-5 md:px-8 pt-8 pb-10 md:pt-10 md:pb-12 flex flex-col items-center text-center gap-6">
 
         {/* Eyebrow pill */}
         <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 text-white text-[11px] font-bold uppercase tracking-widest">

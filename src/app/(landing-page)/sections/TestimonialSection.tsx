@@ -33,7 +33,7 @@ const STATS = [
 export default function TestimonialSection() {
   return (
     <section 
-      className="bg-background text-foreground py-10 lg:py-16 border-y border-border/40 relative overflow-hidden" 
+      className="bg-background text-foreground py-8 lg:py-10 border-y border-border/40 relative overflow-hidden" 
       role="region"
       aria-label="User testimonials"
     >

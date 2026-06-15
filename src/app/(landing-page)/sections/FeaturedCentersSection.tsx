@@ -229,7 +229,7 @@ export default function FeaturedCentersSection() {
         style={{ background: "linear-gradient(to top, var(--background), transparent)" }}
       />
 
-      <div className="relative z-20 max-w-7xl mx-auto px-5 md:px-8 pt-14 md:pt-20 pb-14 md:pb-20">
+      <div className="relative z-20 max-w-7xl mx-auto px-5 md:px-8 pt-8 md:pt-10 pb-8 md:pb-10">
 
         {/* Section Header */}
         <div className="flex flex-col items-center text-center gap-3 mb-10 md:mb-14">

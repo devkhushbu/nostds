@@ -153,7 +153,7 @@ export default function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-background overflow-hidden py-14 md:py-20"
+      className="relative w-full bg-background overflow-hidden py-8 md:py-10"
     >
       {/* ── Red Ribbon — exact Wikipedia SVG as <img> ── */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">

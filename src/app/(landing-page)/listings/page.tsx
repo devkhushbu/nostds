@@ -85,7 +85,7 @@ export default function ListingsPage() {
       />
 
       {/* Main Results Container */}
-      <div className="max-w-[1440px] mx-auto px-5 md:px-8 py-12 md:py-16">
+      <div className="max-w-[1440px] mx-auto px-3 md:px-8 py-12 md:py-16">
         
         {/* Results Info & Tabs Toggles */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 pb-6 border-b border-border">

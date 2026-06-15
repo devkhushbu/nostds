@@ -27,7 +27,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="relative min-h-[95vh] w-full flex flex-col items-center justify-center py-20 px-4 md:px-8 overflow-hidden">
+    <div className="relative min-h-[80vh] w-full flex flex-col items-center justify-center py-12 md:py-16 px-4 md:px-8 overflow-hidden">
       {/* Background Image */}
       <Image
         src="/images/hero-bg.png"

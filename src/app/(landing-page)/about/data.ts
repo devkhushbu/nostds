@@ -38,7 +38,11 @@ export const aboutPageData: AboutPageData = {
   introduction: "Empowering safer relationships through confidential STD testing, secure result sharing, and verified health status.\n\nWe bridge patients, testing centers, and modern relationships with privacy-first technology — because knowing is the first step to protecting.",
   content: `NoSTDs exists to make STD testing **simple, confidential, and meaningful** — helping people protect their health and build trust in relationships without fear or stigma.
 
-> **Our Mission**: We bridge patients, testing centers, and modern relationships with privacy-first technology — because knowing is the first step to protecting.
+### Our Mission
+We bridge patients, testing centers, and modern relationships with privacy-first technology — because knowing is the first step to protecting.
+
+### Our Vision
+To build a world where sexual health conversations are free of stigma, and relationships are built on trust, safety, and transparency.
 
 ### What We Do
 NoSTDs provides a unified platform to support safety at every stage of dating and relationship building:

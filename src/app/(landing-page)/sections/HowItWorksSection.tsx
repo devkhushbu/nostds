@@ -66,7 +66,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-background py-14 md:py-24">
+    <section className="relative w-full overflow-hidden bg-background py-8 md:py-10">
 
       {/* Top & bottom bg fade */}
       <div

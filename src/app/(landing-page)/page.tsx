@@ -6,6 +6,7 @@ import HowItWorksSection from "./sections/HowItWorksSection";
 import CtaBannerSection from "./sections/CtaBannerSection";
 import StatsSection from "./sections/StatsSection";
 import TestimonialSection from "./sections/TestimonialSection";
+import ContactSection from "./sections/ContactSection";
 
 
 export default function LandingPage() {
@@ -18,6 +19,7 @@ export default function LandingPage() {
       <StatsSection />
       <TestimonialSection />
       <CtaBannerSection />
+      <ContactSection />
     </div>
   );
 }

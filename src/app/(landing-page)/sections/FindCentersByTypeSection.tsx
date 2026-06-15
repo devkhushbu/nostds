@@ -118,7 +118,7 @@ export default function FindCentersByTypeSection() {
       />
 
       {/* ── Section Header ── */}
-      <div className="relative z-20 max-w-7xl mx-auto px-5 md:px-8 pt-8 md:pt-12 pb-6 md:pb-8">
+      <div className="relative z-20 max-w-7xl mx-auto px-5 md:px-8 pt-8 pb-4">
         <div className="flex flex-col items-center text-center gap-2.5">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/12 text-primary text-[11px] font-bold uppercase tracking-widest">
             <ShieldCheck className="size-3" />
@@ -140,14 +140,14 @@ export default function FindCentersByTypeSection() {
       </div>
 
       {/* ── Alternating Blocks ── */}
-      <div className="relative z-20 max-w-7xl mx-auto px-5 md:px-8 pb-10 md:pb-16">
+      <div className="relative z-20 max-w-7xl mx-auto px-5 md:px-8 pb-8 md:pb-10">
         <div className="flex flex-col gap-0">
           {centerTypes.map((center, index) => {
             const Icon = center.icon;
             const isEven = index % 2 === 0; // desktop: even → img left, odd → img right
 
             return (
-              <div key={center.id} className="relative py-7 md:py-10">
+              <div key={center.id} className="relative py-5 md:py-6">
 
                 {/* Per-block glow — fades at edges naturally */}
                 <div

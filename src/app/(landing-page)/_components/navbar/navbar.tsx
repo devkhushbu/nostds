@@ -128,7 +128,7 @@ export const Navbar = () => {
                 variant="outline"
                 size="sm"
               >
-                <Link href="#contact" onClick={() => setMenuState(false)}>
+                <Link href="/login" onClick={() => setMenuState(false)}>
                   <span>Login</span>
                 </Link>
               </Button>
@@ -137,7 +137,7 @@ export const Navbar = () => {
                 variant="default"
                 size="sm"
               >
-                <Link href="#contact" onClick={() => setMenuState(false)}>
+                <Link href="/sign-up" onClick={() => setMenuState(false)}>
                   <span>Sign Up</span>
                 </Link>
               </Button>
@@ -180,7 +180,7 @@ export const Navbar = () => {
                   size="sm"
                   className="w-full sm:w-auto"
                 >
-                  <Link href="#contact" onClick={() => setMenuState(false)}>
+                  <Link href="/login" onClick={() => setMenuState(false)}>
                     <span>Login</span>
                   </Link>
                 </Button>
@@ -190,7 +190,7 @@ export const Navbar = () => {
                   size="sm"
                   className="w-full sm:w-auto"
                 >
-                  <Link href="#contact" onClick={() => setMenuState(false)}>
+                  <Link href="/sign-up" onClick={() => setMenuState(false)}>
                     <span>Sign Up</span>
                   </Link>
                 </Button>
