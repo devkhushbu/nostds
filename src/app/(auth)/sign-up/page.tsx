@@ -86,7 +86,7 @@ export default function SignUpPage() {
       </div>
 
       {/* Right Panel: Auth Form */}
-      <div className="flex w-full flex-col justify-between bg-background px-6 pt-5 pb-8 md:py-8 md:w-1/2 md:px-12 lg:px-20 xl:px-24 rounded-none">
+      <div className="flex w-full flex-col justify-between bg-background px-6 pt-5 pb-8 md:py-8 md:w-1/2 md:px-12 lg:px-20 xl:px-24 -mt-6 relative z-10 rounded-t-[30px] md:mt-0 md:rounded-none">
         {/* Top Header: Logo & Back Link */}
         <div className="flex items-center justify-between">
           <Link
